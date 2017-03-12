@@ -3,21 +3,24 @@
 <head>
     <title>Booklist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Add Book</h1>
+	<div class="col-md-4">
 		<form th:object="${book}" th:action="@{save}" action="#" method="post">
-		  	<p>Author<input type = "text" id ="aut" th:field="*{author}"/></p>
-		  	<p>Title<input type = "text" id ="tit" th:field="*{title}"/></p>
-		  	<p>ISBN<input type = "text" id ="isb" th:field="*{isbn}"/></p>
-		  	<p>Year<input type = "text" id ="yea" th:field="*{year}"/></p>
-		  	<p>Price<input type = "text" id ="pri" th:field="*{price}"/></p>
+		  	<p>Author<input type = "text" id ="aut" th:field="*{author}" class = "form-control"/></p>
+		  	<p>Title<input type = "text" id ="tit" th:field="*{title}" class = "form-control"/></p>
+		  	<p>ISBN<input type = "text" id ="isb" th:field="*{isbn}" class = "form-control"/></p>
+		  	<p>Year<input type = "text" id ="yea" th:field="*{year}" class = "form-control"/></p>
+		  	<p>Price<input type = "text" id ="pri" th:field="*{price}" class = "form-control"/></p>
 		  	<label for="cat">Category</label>
 			 <select id="cat" th:field="*{category}" class="form-control">
        			<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
     		</select>
 		  	
-		  	<input type="submit" value="Save"></input>
+		  	<input type="submit" value="Save" class="btn btn-success"></input>
 		</form>
+	</div>
 </body>
 </html>
